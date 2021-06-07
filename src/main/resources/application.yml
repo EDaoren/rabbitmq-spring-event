@@ -1,0 +1,42 @@
+server:
+  port: 8080
+
+# RabbitMQ连接配置
+spring:
+  application:
+    name: rabbitmq-spring-event
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://192.168.50.1:3306/cloud2020?useSSL=false&useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true&serverTimezone=Asia/Shanghai
+    username: root
+    password: root1234
+
+  #====================================rabbitmq config===============================================
+  rabbitmq:
+    addresses: 192.168.50.10:5672
+    username: root
+    password: root
+    virtual-host: /
+    connection-timeout: 15000
+    # RabbitMQ消费配置
+    listener:
+      simple:
+        auto-startup: true
+        # 基本并发：5
+        concurrency: 5
+        # 最大并发：10
+        max-concurrency: 10
+        # 签收模式：手动签收
+        acknowledge-mode: manual
+        # 限流策略：同一时间只有1条消息发送过来消费
+        prefetch: 1
+
+#====================================mybatis-plus config===============================================
+mybatis-plus:
+  mapper-locations: classpath*:/mapper/*.xml
+  typeAliasesPackage: com.edaoren.event.entity
+  configuration:
+    map-underscore-to-camel-case: true
+  global-config:
+    db-config:
+      id-type: auto
