@@ -20,7 +20,7 @@ RabbitMq 使用
 
 Spring Event 使用
 
-- 编写Mq 使用的消息体 `TestMessage`
+- 编写Spring Event使用的消息体 `TestMessage`
 - 编写 `TestSpringEvent` 
 - 编写 `TestSpringListener` Mq监听，实现响应的业务
 
