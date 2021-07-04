@@ -1,6 +1,6 @@
 # rabbitmq-spring-event
 
-记录Spring boot 整合 RabbitMq 和 Spring Event 学习例子，支持设置当前是否提交后提交
+记录Spring boot 整合 RabbitMq 和 Spring Event 学习例子，支持设置当前是否事务提交后提交
 
 RabbitMq 使用
 
